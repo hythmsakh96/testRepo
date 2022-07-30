@@ -1,0 +1,24 @@
+/*
+ * SSD_int.h
+ *
+ *  Created on: May 17, 2022
+ *      Author: Hythm Saad Khalifa
+ */
+
+#ifndef SSD_SSD_INT_H_
+#define SSD_SSD_INT_H_
+
+#define SSD_TYPE == COM_CATHODE
+
+#if
+
+#elif
+
+#endif
+
+void SSD_vDisplayNum(u8 A_u8Num);
+
+void SSD_vTurnOff();
+
+
+#endif /* SSD_SSD_INT_H_ */

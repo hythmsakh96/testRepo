@@ -1,0 +1,153 @@
+/*
+ * DIO_prg.c
+ *
+ *  Created on: May 17, 2022
+ *      Author: Hythm Saad Khalifa
+ */
+
+
+#include "../../LIB/STD_TYPES.h"
+#include "../../LIB/BIT_MATH.h"
+
+#include <avr/io.h>
+
+#include "DIO_int.h"
+
+void DIO_vSetPinDir(u8 A_u8PortNo,u8 A_u8PinNo,u8 A_u8Dir)
+{
+	switch(A_u8Dir)
+	{
+	case DIO_OUTPUT:
+		switch(A_u8PortNo)
+		{
+		case DIO_PORTA:
+			SET_BIT(DDRA,A_u8PinNo);
+			break;
+		case DIO_PORTB:
+			SET_BIT(DDRB,A_u8PinNo)
+			break;
+		case DIO_PORTC:
+			SET_BIT(DDRC,A_u8PinNo)
+			break;
+		case DIO_PORTD:
+			SET_BIT(DDRD,A_u8PinNo)
+			break;
+		}
+		break;
+	case DIO_INPUT:
+		switch(A_u8PortNo)
+		{
+			case DIO_PORTA:
+				CLR_BIT(DDRA,A_u8PinNo);
+				break;
+			case DIO_PORTB:
+				CLR_BIT(DDRB,A_u8PinNo)
+				break;
+			case DIO_PORTC:
+				CLR_BIT(DDRC,A_u8PinNo)
+				break;
+			case DIO_PORTD:
+				CLR_BIT(DDRD,A_u8PinNo)
+				break;
+			}
+		break;
+	}
+}
+
+void DIO_vSetPinVal(u8 A_u8PortNo,u8 A_u8PinNo,u8 A_u8Dir)
+{
+	switch(A_u8Dir)
+	{
+	case DIO_HIGH:
+		switch(A_u8PortNo)
+		{
+		case DIO_PORTA:
+			SET_BIT(PORTA,A_u8PinNo);
+			break;
+		case DIO_PORTB:
+			SET_BIT(PORTB,A_u8PinNo)
+			break;
+		case DIO_PORTC:
+			SET_BIT(PORTC,A_u8PinNo)
+			break;
+		case DIO_PORTD:
+			SET_BIT(PORTD,A_u8PinNo)
+			break;
+		}break;
+		case DIO_INPUT:
+			switch(A_u8PortNo)
+			{
+			case DIO_PORTA:
+				CLR_BIT(PORTA,A_u8PinNo);
+				break;
+			case DIO_PORTB:
+				CLR_BIT(PORTB,A_u8PinNo)
+				break;
+			case DIO_PORTC:
+				CLR_BIT(PORTC,A_u8PinNo)
+				break;
+			case DIO_PORTD:
+				CLR_BIT(PORTD,A_u8PinNo)
+				break;
+			}
+			break;
+
+	}
+}
+void DIO_vSetPortDir(u8 A_u8PortNo,u8 A_u8Dir)
+{
+	switch(A_u8PortNo)
+	{
+	case DIO_PORTA:
+		DDRA = A_u8Dir;
+		break;
+	case DIO_PORTB:
+		DDRB = A_u8Dir;
+		break;
+	case DIO_PORTC:
+		DDRC = A_u8Dir;
+		break;
+	case DIO_PORTD:
+		DDRD = A_u8Dir;
+		break;}
+}
+
+void DIO_vSetPortVal(u8 A_u8PortNo,u8 A_u8Dir)
+{
+	switch(A_u8PortNo)
+	{
+	case DIO_PORTA:
+		PORTA = A_u8Dir;
+		break;
+	case DIO_PORTB:
+		PORTB = A_u8Dir;
+		break;
+	case DIO_PORTC:
+		PORTC = A_u8Dir;
+		break;
+	case DIO_PORTD:
+		PORTD = A_u8Dir;
+		break;}
+}
+
+u8 DIO_u8GetPortVal(u8 A_u8PortNo)
+{
+	switch(A_u8PortNo)
+	{
+	case DIO_PORTA:
+		return PINA;
+		break;
+	case DIO_PORTB:
+
+		return PINB;
+		break;
+	case DIO_PORTC:
+
+		return PINC;
+		break;
+	case DIO_PORTD:
+
+		return PIND;
+		break;
+	}
+}

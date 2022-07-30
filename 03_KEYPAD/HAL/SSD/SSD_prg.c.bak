@@ -1,0 +1,42 @@
+/*
+ * SSD_prg.c
+ *
+ *  Created on: May 17, 2022
+ *      Author: Hythm Saad Khalifa
+ */
+
+#include "../../LIB/STD_TYPES.h"
+
+#include "../../MCAL/DIO/DIO_int.h"
+
+static const u8 G_u8SSD_Nums[]={0b0111111,
+	    0b0000110,
+	    0b1011011,
+	    0b1001111,
+	    0b1100110,
+	    0b1101101,
+	    0b1111101,
+	    0b0000111,
+	    0b1111111,
+	    0b1101111,
+	    0b1110111,
+	    0b1111100,
+	    0b0111001,
+	    0b1011110,
+	    0b1111001,
+	    0b1110001,
+	    0b0000000};
+
+void SSD_vDisplayNum(u8 A_u8Num)
+{
+	if(A_u8Num<10)
+	{
+#if SSD_TYPE == COM_CATHODE
+		DIO_vSetPortVal(DIO_PORTA)
+#elif SSD_TYPE == COM_ANODE
+			DIO_vSetPortVal(DIO_PORTA)
+#endif
+	}
+}
+
+void SSD_vTurnOff();
